@@ -4,8 +4,8 @@
 @SET naildir=..\..\bin
 @SET dictionary=generated_dictionary.h
 @SET source1=game.inf
-@SET source2=grammar.inf
-@SET source3=parser.h
+@SET source2=parser.h
+@SET source3=grammar.inf
 @SET outfile=game.z3
 @SET debug_outfile=game_debug.z3
 

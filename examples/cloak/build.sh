@@ -6,8 +6,8 @@ compiler=inform6
 naildir=../../bin
 dictionary=generated_dictionary.h
 source1=game.inf
-source2=grammar.inf
-source3=parser.h
+source2=parser.h
+source3=grammar.inf
 outfile=game.z3
 debug_outfile=game_debug.z3
 

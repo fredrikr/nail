@@ -34,7 +34,7 @@ $linenumber = 0
 		$linenumber += 1
 		if line =~ /'[^ ']{2,}'/
 			ix = 0
-			while m = line.match(/'([^ ']{2,20})'(?:\s*=\s*W_([A-Z0-9_]+))?/, ix)
+			while m = line.match(/'([^ ']{2,20})'(?:\s*=\s*W_([A-Z0-9_]+)\s*$)?/, ix)
 				source_word = m[1].downcase
 				const_name = nil
 				const_name = m[2] if m.length > 2

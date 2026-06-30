@@ -56,7 +56,7 @@ Include "nail.h";
 ! ####################################
 
 ! Set constant names for dictionary words we want to name explicitly
-! E.g. "! 'to' = W_TO_WORD"
+! E.g. "! 'myword' = W_MY_SPECIAL_WORD"
 
 Include "generated_dictionary.h";
 
