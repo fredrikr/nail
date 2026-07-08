@@ -3,6 +3,18 @@
 Upcoming release:
 
 ===
+v1.4, 2026-07-09
+
+- Added System_file directive in parser.h (without this, game authors can't replace routines in this file).
+- Fixed typo in grammar.inf: 'transscript' => 'transcript'
+- Fixed bug in grammar.inf: AfterRoutines was run twice for Look action.
+- Made the default Examine message (in grammar.h) a proper message, MSG_EXAMINE_NOTHING_SPECIAL.
+- bin/build_dictionary.rb now takes two optional parameters -s and -e, to decide which range of numbers to try as a factor, e.g. build_dictionary.rb -s 2 -e 100 dict.inf game.inf 
+- Fixed scope bug in nail.h: parts of a transparent, inanimate object were not added to scope. (E.g. a button object "in" a machine object).
+- Fixed bug in TakeSub in grammar.inf: Player could take things that were held by an actor or were part of an inanimate object.
+- Fixed bug in nail.h, procedures _InitObjects and MoveFloatingObjects: They were using the floating_objects array as a word array, but it's declared as a byte array. This would cause a crash when the array was more than half-full.
+
+===
 v1.3, 2026-07-05
 
 - Instead of failing with an error message, build_dictionary.rb will now make up names (W_SPECIAL_WORD_n)for dictionary words which contain special characters, or where the constant name is already in use for another dictionary word.

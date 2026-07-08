@@ -129,9 +129,6 @@
 	action = _action;
 
 	give location visited;
-
-	run_after_routines_msg = 1;
-
 ];
 
 [ LookSub _old_lookmode;
@@ -161,8 +158,8 @@
 #Ifdef OPTIONAL_DARKNESS;
 	if(location == thedark) return MSG_ITS_DARK;
 #Endif;
-	if(noun.description == 0 or NULL) 
-		print "You find nothing special about ", (the) noun, ".^";
+	if(noun.description == 0 or NULL)
+		PrintMsg(MSG_EXAMINE_NOTHING_SPECIAL, noun);
 	else
 		RunRoutines(noun, description);
 	run_after_routines_msg = 1;
@@ -197,11 +194,11 @@
 
 
 [ TakeSub _parent _container_or_supporter;
-	if(ObjectIsUntouchable(noun)) rtrue;
 	if(CommonAncestor(player, noun) == 0 || noun has animate or scenery)
 		return MSG_ABSURD;
 	if(noun has static) return MSG_IS_STATIC;
 	if(noun in player) "You already have that.";
+	if(ObjectIsUntouchable(noun, false, true)) rtrue;
 	if(IndirectlyContains(noun, player)) { PrintMsg(MSG_EXIT, noun); rtrue; }
 
 	_parent = parent(noun);
@@ -1327,7 +1324,7 @@ Array _places_grammar -->
 #Ifdef OPTIONAL_SCRIPT;
 Array _script_grammar -->
 	'script'       g_script
-	'transscript'  g_script
+	'transcript'   g_script
 	'noscript'     g_noscript
 	'unscript'     g_noscript
 	'recording'    g_recording
@@ -1381,6 +1378,7 @@ Constant MSG_FULLSCORE_END 114;
 Constant MSG_YOU_HAVE_WON 115;
 Constant MSG_YOU_HAVE_DIED 116;
 Constant MSG_RESTART_RESTORE_OR_QUIT 117;
+Constant MSG_EXAMINE_NOTHING_SPECIAL 118;
 
 Constant MSG_NO_MATCHING_OBJECT "I can't see what you're referring to.";
 Constant MSG_BE_MORE_SPECIFIC "You have to be more specific.";
@@ -1432,6 +1430,8 @@ Constant MSG_FULLSCORE_ACTIONS "performing noteworthy actions";
 		print "^> "; rtrue;
 	MSG_OK: 
 		"Ok.";
+	MSG_EXAMINE_NOTHING_SPECIAL:
+		"You find nothing special about ", (the) p_arg_1, ".";
 	MSG_AUTO_TAKE:
 		"(first taking ", (the) p_arg_1, ")";
 	MSG_NOT_HOLDING:

@@ -6,7 +6,7 @@ System_file;
 ! ####################################
 
 Constant NAIL_MAJOR_VERSION = 1;
-Constant NAIL_MINOR_VERSION = 3;
+Constant NAIL_MINOR_VERSION = 4;
 Constant NAIL_PATCH_VERSION = 0; ! Usually 0 (if zero, it is not printed in banner)
 !Constant NAIL_VERSION_SUFFIX = "dev"; ! Comment out if none
 
@@ -253,7 +253,6 @@ Array which_object_second -> MAX_WHICH_OBJECTS + 1;
 
 Global IsARoutine = _IsARoutine_Case1;
 Global IsAString = _IsAString_Case1;
-
 
 Fake_Action Receive;
 Fake_Action LetGo;
@@ -1065,7 +1064,7 @@ Array floating_objects -> MAX_FLOATING_OBJECTS + 1;
 				rtrue;
 			}
 #EndIf;
-			floating_objects-->(_k++) = _i;
+			floating_objects->(_k++) = _i;
 .not_floating;
 	@inc_chk _i top_object ?~objloop;
 	return;
@@ -1076,7 +1075,7 @@ Array floating_objects -> MAX_FLOATING_OBJECTS + 1;
 	_i--;
 ._next_floating;
 		_i++;
-		_obj = floating_objects-->_i;
+		_obj = floating_objects->_i;
 		if(_obj == 0)
 			jump _done_floating;
 !		if(parent(_obj) ~= 0 && IndirectlyContains(player, _obj))
@@ -1296,9 +1295,9 @@ Constant PlaceInScope = _PutInScope;
 [ _SearchScope p_obj p_risk_duplicates;
 	while(p_obj) {
 		_PutInScope(p_obj, p_risk_duplicates);
-		if(p_obj has animate or supporter || 
-				(p_obj has container && p_obj has open or transparent))
-			_SearchScope(child(p_obj));
+		if(p_obj has supporter or transparent || 
+				(p_obj has container && p_obj has open))
+			_SearchScope(child(p_obj), p_risk_duplicates);
 		p_obj = sibling(p_obj);
 	}
 ];

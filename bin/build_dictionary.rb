@@ -12,8 +12,25 @@
 # dict.inf
 
 if ARGV.length < 2
-	puts "Sample usage: ruby build_dictionary.rb dictionary.inf mygame.inf parser.inf ..."
+	puts "Sample usage: ruby build_dictionary.rb -s 25 -e 999 dict.inf game.inf ..."
+	puts "  -s (optional) is used to set the start value to try as a factor (value = 2-32767, default 14)"
+	puts "  -e (optional) is used to set the end value to try as a factor (value = 2-32767, default 10000)"
 	puts "Note: This OVERWRITES dictionary.inf"
+	exit 1
+end
+
+$start_factor = 14
+$end_factor = 10000
+while ['-s','-e'].index(ARGV[0])
+	flag = ARGV.shift
+	$start_factor = ARGV.shift.to_i if flag == '-s'
+	$end_factor = ARGV.shift.to_i if flag == '-e'
+end
+
+if $start_factor > $end_factor or
+		$start_factor < 2 or
+		$end_factor > 32767
+	puts "ERROR: Start factor must be at least 2. End factor must be greater than start factor, and less than 32768."
 	exit 1
 end
 
@@ -150,13 +167,13 @@ end
 # Find best dictionary encoding factor
 #######################################
 
-$score = Array.new(10001)
+$score = Array.new($end_factor + 1)
 
 best = 1000000
 $best_factor = 0
 coll = []
 
-14.upto(10000) do |i|
+$start_factor.upto($end_factor) do |i|
 	$chk2 = {}
 	$factor = i
 
