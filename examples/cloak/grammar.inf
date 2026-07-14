@@ -346,6 +346,7 @@
 	if(noun has locked) "That's locked.";
 	if(noun hasnt openable) return MSG_TELL_ME_HOW;
 	give noun open;
+	scope_modified = true;
 !	"You open ", (the) noun, ".";
 	run_after_routines_msg = MSG_OK;
 ];
@@ -354,6 +355,7 @@
 	if(noun hasnt open) { PrintMsg(MSG_OBJ_NOT_OPEN, noun); rtrue; }
 	if(noun hasnt openable) return MSG_TELL_ME_HOW;
 	give noun ~open;
+	scope_modified = true;
 !	"You close ", (the) noun, ".";
 	run_after_routines_msg = MSG_OK;
 ];

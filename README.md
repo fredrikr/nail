@@ -83,6 +83,10 @@ There are also categories/channels in the above forums where you can
 discuss plot, story, puzzles etc, and posts requests for beta-testers
 for your game.
 
+## Games that were built with NAIL
+
+* [SchoolAdventure](https://github.com/fredrikr/schooladventure)
+
 ## Credits
 
 NAIL borrows a lot of code and concepts from PunyInform, created and maintained by 
