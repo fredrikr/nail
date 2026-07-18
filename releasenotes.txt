@@ -4,6 +4,7 @@ Upcoming release:
 
 - Made build_dictionary.rb a lot faster (3+ times faster for a test scenario).
 - Fixed bug: OpenSub and CloseSub in grammar.inf didn't set scope_modified = true.
+- New feature: An input line starting with "*" is treated as a comment (typically used to make remarks in a transcript).
 
 ===
 v1.4, 2026-07-09
