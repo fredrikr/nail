@@ -35,7 +35,7 @@ System_file;
 ];
 
 [ ItorThem p_obj;
-	if (p_obj == player)		{ print "yourself"; rtrue; }
+	if (p_obj == player)		{ print (name) player; rtrue; }
 	if (p_obj has pluralname)	{ print "them"; rtrue; }
 	if (p_obj has animate) {
 		if (p_obj has female)	{ print "her"; rtrue; }
