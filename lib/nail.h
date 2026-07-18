@@ -339,7 +339,10 @@ Object thedark "Darkness"
 #Endif;
 ._newInput;
 		_ReadPlayerInput();
-		if(buffer->1 == '*') jump _newInput;
+		if(buffer->1 == '*') {
+			PrintMsg(MSG_COMMENT_ACCEPTED);
+			jump _newInput;
+		}
 
 		if(ParseAndPerformAction() && meta == false) {
 			EndTurnSequence();

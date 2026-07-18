@@ -1409,6 +1409,7 @@ Constant MSG_NO_REPLY "There is no reply.";
 Constant MSG_GIVE_DEFAULT "Your offer is quietly ignored.";
 Constant MSG_ATTACK_DEFAULT "Violence isn't the answer here.";
 Constant MSG_ACHEIVE_NOTHING "You would achieve nothing by this.";
+Constant MSG_COMMENT_ACCEPTED "[Comment accepted]";
 #Ifdef OPTIONAL_DARKNESS;
 Constant MSG_NOW_DARK "It's now completely dark.";
 Constant MSG_ITS_DARK "But it's dark.";
