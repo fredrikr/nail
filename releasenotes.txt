@@ -2,12 +2,15 @@
 
 Upcoming release:
 
+===
+v1.5, 2026-07-19
+
 - Made build_dictionary.rb a lot faster (3+ times faster for a test scenario).
 - Fixed bug: OpenSub and CloseSub in grammar.inf didn't set scope_modified = true.
 - New feature: An input line starting with "*" is treated as a comment (typically used to make remarks in a transcript).
-- Changed ItOrThem routine in parser.h, so it prints (name) player, instead of "yourself", to if a  game changes the name of the player object, it's picked up here as well. 
+- Changed ItOrThem routine in parser.h, so it prints (name) player, instead of "yourself", so if a  game changes the name of the player object, it's picked up here as well. 
 - Added support for user-defined constants MAX_INPUT_CHARS (default 78) and MAX_INPUT_WORDS (default 20).
-- Added support for user-defined constant MAX_TIMERS (upper limit on how many timers + daemons can be active at the same time).
+- Added support for user-defined constant MAX_TIMERS (default 10): upper limit on how many timers + daemons can be active at the same time.
 - Documented support for user-defined constant MAX_FLOATING_OBJECTS (default 20), which is the maximum number of objects which can provide the found_in property.
 
 ===

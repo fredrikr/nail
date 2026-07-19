@@ -6,9 +6,9 @@ System_file;
 ! ####################################
 
 Constant NAIL_MAJOR_VERSION = 1;
-Constant NAIL_MINOR_VERSION = 4;
+Constant NAIL_MINOR_VERSION = 5;
 Constant NAIL_PATCH_VERSION = 0; ! Usually 0 (if zero, it is not printed in banner)
-Constant NAIL_VERSION_SUFFIX = "dev"; ! Comment out if none
+!Constant NAIL_VERSION_SUFFIX = "dev"; ! Comment out if none
 
 
 #Ifndef RUNTIME_ERRORS;
