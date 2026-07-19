@@ -13,7 +13,7 @@ PunyInform, in turn, is based on the Inform 6 standard library, developed by Gra
 
 Games using NAIL can only be compiled to z3 format.
 
-To compile games using NAIL, you need the the official Inform 6
+To compile games using NAIL, you need the official Inform 6
 compiler maintained by David Kinder, at
 https://github.com/DavidKinder/Inform6.  Binaries can be found at the
 [IF-Archive](https://www.ifarchive.org/indexes/if-archive/infocom/compilers/inform6/executables/).
@@ -86,6 +86,7 @@ for your game.
 ## Games that were built with NAIL
 
 * [SchoolAdventure](https://github.com/fredrikr/schooladventure)
+* [Madman](https://github.com/fredrikr/madman)
 
 ## Credits
 
