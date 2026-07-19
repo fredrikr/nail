@@ -431,8 +431,8 @@ System_file;
 		num_words_enqueued = 0;
 	} else {
 		if(p_no_prompt == 0) PrintMsg(MSG_PROMPT);
-		_buffer->0 = 78;
-		_parse->0 = 19;
+		_buffer->0 = MAX_INPUT_CHARS;
+		_parse->0 = MAX_INPUT_WORDS;
 		@sread _buffer _parse;
 		_num_words = _parse->1;
 		if(p_secondary == false) {

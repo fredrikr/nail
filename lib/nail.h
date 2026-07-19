@@ -236,16 +236,26 @@ Array task_scores -> 1;
 #Endif;
 #Endif;
 
+Default MAX_INPUT_CHARS 78;
+Default MAX_INPUT_WORDS 20;
+
 Constant TIMER_TYPE_DAEMON = 10000;
-Default MAX_SCOPE             50;
+Default MAX_SCOPE 50;
 Array scope -> MAX_SCOPE; ! z3 only, so object numbers are single byte
 Array scope_copy -> MAX_SCOPE; ! z3 only, so object numbers are single byte
-Array buffer -> 80;
-Array buffer2 -> 80;
-Array _parse -> 80;
-Array _parse2 -> 80;
+Array buffer->(MAX_INPUT_CHARS + 2);
+Array buffer2->(MAX_INPUT_CHARS + 2);
+Array _parse->(2 + 4 * MAX_INPUT_WORDS);
+Array _parse2->(2 + 4 * MAX_INPUT_WORDS);
 Global parse = _parse;
 Global parse2 = _parse2;
+
+Default MAX_TIMERS 10; ! Max number of timers and daemons combined that are active at the same time
+Array timer_array --> MAX_TIMERS;
+Global timers;
+
+Default MAX_FLOATING_OBJECTS 20; ! Max number of objects that have found_in property
+Array floating_objects -> MAX_FLOATING_OBJECTS + 1;
 
 Default MAX_WHICH_OBJECTS 10;
 Array which_object_noun -> MAX_WHICH_OBJECTS + 1;
@@ -340,6 +350,7 @@ Object thedark "Darkness"
 ._newInput;
 		_ReadPlayerInput();
 		if(buffer->1 == '*') {
+			num_words_enqueued = 0;
 			PrintMsg(MSG_COMMENT_ACCEPTED);
 			jump _newInput;
 		}
@@ -972,11 +983,6 @@ Constant ERR_BUFFER_OVERRUN 7;
 	}
 ];
 
-Constant MAX_TIMERS 10;
-Array timer_array --> MAX_TIMERS;
-!Global daemons;
-Global timers;
-
 [ LocateWordValue p_arr p_length p_value _i _val;
 	@jl p_length 1 ?_not_found;
 	p_length--;
@@ -1055,9 +1061,6 @@ Global timers;
 ._dont_run;
 	@inc_chk _i _count ?~_run_next_timer;
 ];
-
-Default MAX_FLOATING_OBJECTS  20;            ! Max number of objects that have found_in property
-Array floating_objects -> MAX_FLOATING_OBJECTS + 1;
 
 [ _InitObjects _i _k _v;
 	_i = 5; ! Lowest object# (Compiler creates Class, Object, String, Routine)
