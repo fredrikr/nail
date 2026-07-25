@@ -19,7 +19,7 @@ https://github.com/DavidKinder/Inform6.  Binaries can be found at the
 [IF-Archive](https://www.ifarchive.org/indexes/if-archive/infocom/compilers/inform6/executables/).
 You should use at least Inform v6.44, and I recommended using the latest available version.
 
-You can use [borogove.io](https://borogove.io/) to make your PunyInform
+You can use [borogove.io](https://borogove.io/) to make your NAIL
 game playable online. Create an account, upload your game file, and choose whether
 the game should be visible and playable for all visitors to the site, or
 only to those who have the link to your game. Another option is to upload 
@@ -72,7 +72,7 @@ You should start by learning [PunyInform](https://github.com/johanberntsson/Puny
 If you want to discuss, or ask questions about NAIL, these are good places to go:
 
 * **[intfiction.org forum, Inform 6 section](https://intfiction.org/c/authoring/inform-6/66).
-  Please tag your posts with "punyinform".**
+  Please tag your posts with "NAIL".**
 
 * **[PunyInform Discord server](https://discord.com/invite/y9anzKJTBa).
   You can talk about NAIL in the #inferior_systems channel. 
